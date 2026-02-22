@@ -20,29 +20,30 @@ app.get("/api/status", (req, res) => {
     environment: "production",
     timestamp: new Date().toISOString()
   });
-  app.post("/api/submit", (req, res) => {
-    const { name, goal, phase } = req.body;
+ app.post("/api/submit", (req, res) => {
+  const { name, goal, phase } = req.body;
 
-    if (!name || !goal) {
-  return res.status(400).json({
-    error: "Name and goal are required"
-  });
-    
-      const newLead = {
-      id: leads.length + 1,
-      name,
-      goal,
-      phase: phase || "Not specified",
-      createdAt: new Date().toISOString()
-    };
-
-    leads.push(newLead);
-
-    res.status(201).json({
-      message: "Lead captured successfully 🚀",
-      lead: newLead
+  if (!name || !goal) {
+    return res.status(400).json({
+      error: "Name and goal are required"
     });
+  }
+
+  const newLead = {
+    id: leads.length + 1,
+    name,
+    goal,
+    phase: phase || "Not specified",
+    createdAt: new Date().toISOString()
+  };
+
+  leads.push(newLead);
+
+  res.status(201).json({
+    message: "Lead captured successfully 🚀",
+    lead: newLead
   });
+});
 app.get("/api/leads", (req, res) => {
   res.json({
     total: leads.length,
