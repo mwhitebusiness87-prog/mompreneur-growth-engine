@@ -1,2 +1,5 @@
 [nix]
 packages = ["nodejs-16_x"]
+
+[agent]
+expertMode = true
