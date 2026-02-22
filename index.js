@@ -28,7 +28,6 @@ app.get("/api/status", (req, res) => {
       error: "Name and goal are required"
     });
   }
-
   const newLead = {
     id: leads.length + 1,
     name,
