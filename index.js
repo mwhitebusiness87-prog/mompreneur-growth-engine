@@ -1,4 +1,17 @@
-  app.get("/api/status", (req, res) => {
+const express = require("express");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+const leads = [];
+
+app.get("/", (req, res) => {
+  res.send("Mompreneur Growth Engine Running 🚀");
+});
+
+app.get("/api/status", (req, res) => {
     res.json({
       status: "online",
       service: "Mompreneur Growth Engine",
