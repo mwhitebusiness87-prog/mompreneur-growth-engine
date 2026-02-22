@@ -21,11 +21,11 @@ app.get("/api/status", (req, res) => {
   });
 
   app.post("/api/submit", (req, res) => {
-    ...
+
   });
 
   app.get("/api/leads", (req, res) => {
-    ...
+
   });
 
   app.listen(PORT, "0.0.0.0", () => {
