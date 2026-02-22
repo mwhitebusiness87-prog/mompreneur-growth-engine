@@ -18,7 +18,16 @@ app.get("/api/status", (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+// POST endpoint to accept data
+app.post("/api/submit", (req, res) => {
+  const data = req.body;
 
+  res.json({
+    message: "Data received successfully",
+    received: data,
+    timestamp: new Date().toISOString()
+  });
+});  // ← semicolon here
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
