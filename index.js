@@ -24,11 +24,10 @@ app.get("/api/status", (req, res) => {
     const { name, goal, phase } = req.body;
 
     if (!name || !goal) {
-      return res.status(400).json({
-        error: "Name and goal are required"
-      });
-    }
-      
+  return res.status(400).json({
+    error: "Name and goal are required"
+  });
+    
       const newLead = {
       id: leads.length + 1,
       name,
@@ -48,6 +47,7 @@ app.get("/api/leads", (req, res) => {
   res.json({
     total: leads.length,
     leads
+    });
   });
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
