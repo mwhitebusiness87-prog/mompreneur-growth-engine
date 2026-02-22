@@ -1,3 +1,4 @@
+npm install cors
 const express = require("express");
 
 const app = express();
