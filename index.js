@@ -15,7 +15,9 @@ pool.query(`
     phase TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
-`).catch(console.error);
+`).catch(console.error); 
+
+console.log("DATABASE_URL VALUE:", process.env.DATABASE_URL);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
