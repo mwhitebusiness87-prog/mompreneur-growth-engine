@@ -14,8 +14,10 @@ pool.query(`
     name TEXT NOT NULL,
     goal TEXT NOT NULL,
     phase TEXT,
+    status TEXT DEFAULT 'new',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
+`);
 `).catch(console.error); 
 
 console.log("DATABASE_URL VALUE:", process.env.DATABASE_URL);
