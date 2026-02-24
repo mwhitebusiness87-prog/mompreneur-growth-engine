@@ -2,11 +2,12 @@ const express = require("express");
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DATABASE_URL
-    ? { rejectUnauthorized: false }
-    : false
+  connectionString: process.env.DATABASE_URL.trim(),
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
 pool.query(`
   CREATE TABLE IF NOT EXISTS leads (
     id SERIAL PRIMARY KEY,
