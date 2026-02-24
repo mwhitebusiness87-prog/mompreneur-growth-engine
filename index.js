@@ -37,6 +37,23 @@ app.get("/api/status", (req, res) => {
     });
   });
 
+app.put("/api/leads/:id", async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  try {
+    await pool.query(
+      `UPDATE leads SET status = $1 WHERE id = $2`,
+      [status, id]
+    );
+
+    res.json({ message: "Status updated" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Database error" });
+  }
+});
+
 app.post("/api/submit", async (req, res) => {
   const { name, goal, phase } = req.body;
 
