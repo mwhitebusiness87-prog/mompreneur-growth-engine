@@ -17,7 +17,7 @@ pool.query(`
     status TEXT DEFAULT 'new',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
-`);
+
 `).catch(console.error); 
 
 console.log("DATABASE_URL VALUE:", process.env.DATABASE_URL);
