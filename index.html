@@ -1,0 +1,27 @@
+<form id="leadForm">
+  <input name="name" placeholder="Your name" required />
+  <input name="goal" placeholder="Your goal" required />
+  <input name="phase" placeholder="Your phase" />
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+
+  const data = {
+    name: form.name.value,
+    goal: form.goal.value,
+    phase: form.phase.value
+  };
+
+  await fetch("/api/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  alert("Lead submitted!");
+});
+</script>
