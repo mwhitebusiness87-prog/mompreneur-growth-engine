@@ -24,10 +24,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Mompreneur Growth Engine Running 🚀");
-});
+app.use(express.static(__dirname));
 
 app.get("/api/status", (req, res) => {
     res.json({
